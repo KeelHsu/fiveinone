@@ -67,6 +67,6 @@
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
   },
   "include": [
-    "./assets/components/**/*.ts*"
+    "./assets/*.ts*","./assets/components/**/*.ts*"
   ]
 }
