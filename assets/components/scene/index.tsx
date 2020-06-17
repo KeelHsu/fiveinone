@@ -1,15 +1,8 @@
-import React, { Fragment } from "react";
-import ReactDOM from "react-dom";
-import Board from '../board/index';
-import { boardDate } from "../board/date";
-import Controller from "./controller";
+import React, { Fragment } from 'react';
+import Stage from '../stage/index';
 
 const Scene = () => {
-  const controller = new Controller(boardDate)
-
-
-
-  return <Fragment><Board /></Fragment>
+  return <Fragment><Stage /></Fragment>
 }
 
 export default Scene;
