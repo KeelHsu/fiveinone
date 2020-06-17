@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
-import Board from '../board/index';
+import Scene from '../scene/index';
 
 import './index.less'
 
-const Main = () => <Fragment><Board /></Fragment>
+const Main = () => <Fragment><Scene /></Fragment>
 
 export default Main;
