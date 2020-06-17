@@ -1,11 +1,12 @@
 @row: 15;
 @column: 15;
 
-.square{
+.square {
   width: 40%;
   padding-top: 40%;
   position: relative;
-  .square-content{
+
+  .square-content {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -13,31 +14,51 @@
     left: 0;
   }
 }
-#board{
+
+#board {
   background-color: rgb(248, 244, 237);
-  display: flex;
-  flex-wrap: wrap;
-  .unit{
-    width: calc(100% / @row);
-    height: calc(100% / @column);
+
+  .row-layer,
+  .col-layer {
+    width: calc(100% - 100% / @row);
+    height: calc(100% - 100% / @column);
+    position: absolute;
+    top: 100% / @row / 2;
+    left: 100% / @column / 2;
     display: flex;
-    align-items : center;
-    justify-content : center;
-    position: relative;
-    &:before{
-      // 横线
-      content: '';
+    justify-content: space-between;
+  }
+
+  .row-layer {
+    flex-direction: column;
+
+    .row-line {
       width: 100%;
       height: 1px;
       background-color: #000;
-      position: absolute;
     }
-    &:after{
-      // 竖线
-      content: '';
+  }
+
+  .col-layer {
+    .col-line {
       width: 1px;
       height: 100%;
       background-color: #000;
+    }
+  }
+
+  .date-layer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    .unit {
+      width: calc(100% / @row);
+      height: calc(100% / @column);
     }
   }
 }
