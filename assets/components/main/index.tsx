@@ -1,13 +1,9 @@
-import React from "react";
+import React, { Component, Fragment } from "react";
 import ReactDOM from "react-dom";
-import Chessboard from '../chessboard/index';
+import Board from '../board/index';
 
 import './index.less'
 
-class Main extends React.Component {
-  render(){
-    return <div><Chessboard/></div>
-  }
-}
+const Main = () => <Fragment><Board /></Fragment>
 
 export default Main;
