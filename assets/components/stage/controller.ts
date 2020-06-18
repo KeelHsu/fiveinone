@@ -2,13 +2,17 @@ class Controller {
   player: number
   totalRow: number
   totalColumn: number
-  data: Array<Array<number>>
+  data: Array<Array<number>> = []
 
   constructor(totalRow: number, totalColumn: number) {
     this.player = 1
     this.totalRow = totalRow
     this.totalColumn = totalColumn
-    this.data = Array(this.totalRow).fill(Array(this.totalColumn).fill(0))
+
+    for (let i = 0; i < totalRow; i++) {
+      let columnData = Array(this.totalColumn).fill(0)
+      this.data[i] = columnData
+    }
   }
 
   play(row: number, column: number) {
