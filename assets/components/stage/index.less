@@ -1,9 +1,12 @@
 @row: 15;
 @column: 15;
+@stageWidth: 40%;
+@stageColor: rgb(248, 244, 237);
+@lineColor: #000;
 
 .square {
-  width: 40%;
-  padding-top: 40%;
+  width: @stageWidth;
+  padding-top: @stageWidth;
   position: relative;
 
   .square-content {
@@ -17,7 +20,7 @@
 }
 
 #stage {
-  background-color: rgb(248, 244, 237);
+  background-color: @stageColor;
 
   .grid-layer {
     width: calc(100% - 100% / @row);
@@ -26,11 +29,11 @@
     top: calc(100% / @row / 2);
     left: calc(100% / @column / 2);
 
-    background-image: linear-gradient(to bottom, #000 0, #000 1px, transparent 1px), linear-gradient(to right, #000 0, #000 1px, transparent 1px);
+    background-image: linear-gradient(to bottom, @lineColor, transparent 1px), linear-gradient(to right, @lineColor, transparent 1px);
     background-size: calc(100% / (@row - 1)) calc(100% / (@column - 1));
     background-repeat: repeat;
 
-    border: 2px solid #000;
+    border: 2px solid @lineColor;
     box-sizing: border-box;
   }
 
