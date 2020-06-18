@@ -4,5 +4,5 @@ import './index.less'
 export interface CellProps { row: number; column: number; player: number }
 
 export const Cell = (props: CellProps) => {
-  return <Fragment><div className='cell' /></Fragment>
+  return <Fragment><div className={`cell ${props.player == 1 ? ' black' : ' white'}`} /></Fragment>
 }
