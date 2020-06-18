@@ -16,10 +16,9 @@ class Controller {
   }
 
   play(row: number, column: number) {
-    console.log('row', row)
-    console.log('column', column)
     if (this.data[row][column] == 0) {
       this.data[row][column] = this.player;
+      this.player = this.player == 1 ? 2 : 1
     }
   }
 
