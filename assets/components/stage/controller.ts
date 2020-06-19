@@ -50,7 +50,7 @@ class Controller {
         break;
       }
     }
-    console.log('横向',horizontal)
+    console.log('横向', horizontal)
     if (horizontal >= 5) {
       return true;
     }
@@ -69,56 +69,70 @@ class Controller {
         break;
       }
     }
-    console.log('竖向',vertical)
+    console.log('竖向', vertical)
     if (vertical >= 5) {
       return true;
     }
 
     // 西北-东南对角线
+    let temp = column;
     all: for (let i = row + 1; i <= this.totalRow; i++) {
-      for (let j = column + 1; j <= this.totalColumn; j++) {
+      for (let j = temp + 1; j <= this.totalColumn; j++) {
         if (this.data[i][j] == target) {
           leftDiagonal++;
+          temp = j;
+          break;
         } else {
           break all;
         }
       }
     }
+
+    temp = column;
     all: for (let i = row - 1; i >= 0; i--) {
-      for (let j = row - 1; j >= 0; j--) {
+      for (let j = temp - 1; j >= 0; j--) {
         if (this.data[i][j] == target) {
           leftDiagonal++;
+          temp = j;
+          break;
         } else {
           break all;
         }
       }
     }
-    console.log('左上',leftDiagonal)
+    console.log('左上', leftDiagonal)
     if (leftDiagonal >= 5) {
       return true;
     }
 
     // 东北-西南对角线
     // 带标签以跳出外循环
+    temp = column;
     all: for (let i = row - 1; i >= 0; i--) {
-      for (let j = column + 1; j <= this.totalColumn; j++) {
+      for (let j = temp + 1; j <= this.totalColumn; j++) {
         if (this.data[i][j] == target) {
           rightDiagonal++;
+          temp = j;
+          break;
         } else {
           break all;
         }
       }
     }
+
+    temp = column;
     all: for (let i = row + 1; i <= this.totalRow; i++) {
-      for (let j = row - 1; j >= 0; j--) {
+      for (let j = temp - 1; j >= 0; j--) {
         if (this.data[i][j] == target) {
           rightDiagonal++;
+          temp = j;
+          break;
         } else {
           break all;
         }
       }
     }
-    console.log('右上',rightDiagonal)
+    console.log('右上', rightDiagonal)
     if (rightDiagonal >= 5) {
       return true;
     }
