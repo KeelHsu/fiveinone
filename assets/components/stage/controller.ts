@@ -18,12 +18,12 @@ class Controller {
   play(row: number, column: number) {
     if (this.data[row][column] == 0) {
       this.data[row][column] = this.player;
-      this.player = this.player == 1 ? 2 : 1
-
       if (this.win(row, column)) {
         console.log('winner', this.player == 1 ? '黑' : '白')
         return
       }
+
+      this.player = this.player == 1 ? 2 : 1
     }
   }
 
@@ -50,6 +50,7 @@ class Controller {
         break;
       }
     }
+    console.log('横向',horizontal)
     if (horizontal >= 5) {
       return true;
     }
@@ -68,6 +69,7 @@ class Controller {
         break;
       }
     }
+    console.log('竖向',vertical)
     if (vertical >= 5) {
       return true;
     }
@@ -91,6 +93,7 @@ class Controller {
         }
       }
     }
+    console.log('左上',leftDiagonal)
     if (leftDiagonal >= 5) {
       return true;
     }
@@ -115,6 +118,7 @@ class Controller {
         }
       }
     }
+    console.log('右上',rightDiagonal)
     if (rightDiagonal >= 5) {
       return true;
     }
