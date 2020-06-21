@@ -20,6 +20,7 @@ class Controller {
       this.data[row][column] = this.player;
       if (this.win(row, column)) {
         console.log('winner', this.player == 1 ? '黑' : '白')
+        alert('win')
         return
       }
 
@@ -75,29 +76,18 @@ class Controller {
     }
 
     // 西北-东南对角线
-    let temp = column;
-    all: for (let i = row + 1; i <= this.totalRow; i++) {
-      for (let j = temp + 1; j <= this.totalColumn; j++) {
-        if (this.data[i][j] == target) {
-          leftDiagonal++;
-          temp = j;
-          break;
-        } else {
-          break all;
-        }
+    for (let i = 1; i < 5; i++) {
+      if (this.data[row + i][column + i] == target) {
+        leftDiagonal++;
+      } else {
+        break;
       }
     }
-
-    temp = column;
-    all: for (let i = row - 1; i >= 0; i--) {
-      for (let j = temp - 1; j >= 0; j--) {
-        if (this.data[i][j] == target) {
-          leftDiagonal++;
-          temp = j;
-          break;
-        } else {
-          break all;
-        }
+    for (let i = 1; i < 5; i++) {
+      if (this.data[row - i][column - i] == target) {
+        leftDiagonal++;
+      } else {
+        break;
       }
     }
     console.log('左上', leftDiagonal)
@@ -106,33 +96,21 @@ class Controller {
     }
 
     // 东北-西南对角线
-    // 带标签以跳出外循环
-    temp = column;
-    all: for (let i = row - 1; i >= 0; i--) {
-      for (let j = temp + 1; j <= this.totalColumn; j++) {
-        if (this.data[i][j] == target) {
-          rightDiagonal++;
-          temp = j;
-          break;
-        } else {
-          break all;
-        }
+    for (let i = 1; i < 5; i++) {
+      if (this.data[row + i][column - i] == target) {
+        rightDiagonal++;
+      } else {
+        break;
       }
     }
-
-    temp = column;
-    all: for (let i = row + 1; i <= this.totalRow; i++) {
-      for (let j = temp - 1; j >= 0; j--) {
-        if (this.data[i][j] == target) {
-          rightDiagonal++;
-          temp = j;
-          break;
-        } else {
-          break all;
-        }
+    for (let i = 1; i < 5; i++) {
+      if (this.data[row - i][column + i] == target) {
+        rightDiagonal++;
+      } else {
+        break;
       }
     }
-    console.log('右上', rightDiagonal)
+    console.log('右上', leftDiagonal)
     if (rightDiagonal >= 5) {
       return true;
     }
@@ -141,4 +119,8 @@ class Controller {
   }
 }
 
+
+function eightDirection(row: number, column: number) {
+
+}
 export default Controller
