@@ -44,7 +44,7 @@ module.exports = {
   mode: 'development',
   devServer: {
     contentBase: resolve(__dirname, 'dist'),
-    port: 3000,
+    port: 18001,
     open: true
   }
 }
